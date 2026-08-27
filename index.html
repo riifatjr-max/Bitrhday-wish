@@ -24,7 +24,10 @@ body{
     color:white;
 }
 
-/* Stars */
+/* =========================
+   STARS
+========================= */
+
 .star{
     position:absolute;
     width:3px;
@@ -39,13 +42,17 @@ body{
         opacity:.2;
         transform:scale(.5);
     }
+
     to{
         opacity:1;
         transform:scale(1.5);
     }
 }
 
-/* Gift Screen */
+
+/* =========================
+   GIFT SCREEN
+========================= */
 
 .gift-screen{
     text-align:center;
@@ -68,6 +75,8 @@ body{
     animation:float 2s ease-in-out infinite;
 }
 
+/* Gift Box */
+
 .box{
     position:absolute;
     bottom:0;
@@ -78,6 +87,8 @@ body{
     box-shadow:0 15px 40px rgba(0,0,0,.4);
 }
 
+/* Vertical Ribbon */
+
 .ribbon-v{
     position:absolute;
     left:70px;
@@ -86,6 +97,8 @@ body{
     height:120px;
     background:#ffd600;
 }
+
+/* Gift Lid */
 
 .lid{
     position:absolute;
@@ -99,6 +112,8 @@ body{
     transition:1s;
 }
 
+/* Horizontal Ribbon */
+
 .ribbon-h{
     position:absolute;
     left:70px;
@@ -107,6 +122,8 @@ body{
     height:45px;
     background:#ffd600;
 }
+
+/* Bow */
 
 .bow-left,
 .bow-right{
@@ -145,7 +162,10 @@ body{
     animation:pulse 1.5s infinite;
 }
 
-/* Birthday */
+
+/* =========================
+   BIRTHDAY SCREEN
+========================= */
 
 .birthday{
     display:none;
@@ -163,34 +183,76 @@ body{
     max-width:700px;
     padding:45px 25px;
     border-radius:30px;
+
     background:rgba(255,255,255,.12);
+
     backdrop-filter:blur(18px);
+
     border:1px solid rgba(255,255,255,.25);
+
     box-shadow:0 20px 70px rgba(0,0,0,.4);
+
     animation:zoomIn 1.2s ease;
 }
+
+
+/* Cake */
 
 .cake{
     font-size:75px;
     animation:bounce 1.5s infinite;
 }
 
+
+/* Happy Birthday */
+
 .happy{
     font-size:45px;
     margin-top:10px;
-    background:linear-gradient(90deg,#fff,#ffd6f6,#fff);
+
+    background:linear-gradient(
+        90deg,
+        #ffffff,
+        #ffd6f6,
+        #ffffff
+    );
+
     -webkit-background-clip:text;
-    color:transparent;
+    background-clip:text;
+
+    -webkit-text-fill-color:transparent;
+
     text-shadow:0 0 25px rgba(255,255,255,.5);
 }
+
+
+/* IMPORTANT:
+   Emoji will keep original colors
+*/
+
+.happy span{
+    -webkit-text-fill-color:initial;
+    background:none;
+    text-shadow:none;
+}
+
+
+/* Name */
 
 .name{
     font-size:38px;
     font-weight:bold;
     margin:15px 0;
+
     color:#ffe600;
-    text-shadow:0 0 25px #ffea00;
+
+    text-shadow:
+        0 0 10px #ffea00,
+        0 0 25px #ffea00;
 }
+
+
+/* Message */
 
 .message{
     font-size:19px;
@@ -198,61 +260,84 @@ body{
     margin-top:15px;
 }
 
+
+/* Last Birthday Line */
+
 .love{
     margin-top:25px;
     font-size:22px;
 }
 
-/* Animations */
+
+/* =========================
+   ANIMATIONS
+========================= */
 
 @keyframes float{
+
     0%,100%{
         transform:translateY(0);
     }
+
     50%{
         transform:translateY(-15px);
     }
 }
 
+
 @keyframes pulse{
+
     0%,100%{
         opacity:.5;
     }
+
     50%{
         opacity:1;
     }
 }
 
+
 @keyframes fadeIn{
+
     from{
         opacity:0;
     }
+
     to{
         opacity:1;
     }
 }
 
+
 @keyframes zoomIn{
+
     from{
         opacity:0;
         transform:scale(.3);
     }
+
     to{
         opacity:1;
         transform:scale(1);
     }
 }
 
+
 @keyframes bounce{
+
     0%,100%{
         transform:translateY(0);
     }
+
     50%{
         transform:translateY(-12px);
     }
 }
 
-/* Mobile */
+
+/* =========================
+   MOBILE
+========================= */
 
 @media(max-width:600px){
 
@@ -276,13 +361,21 @@ body{
         font-size:65px;
     }
 
+    .love{
+        font-size:18px;
+    }
 }
+
 </style>
 </head>
 
+
 <body>
 
-<!-- Stars -->
+
+<!-- =========================
+     STARS
+========================= -->
 
 <script>
 
@@ -292,10 +385,14 @@ for(let i=0;i<80;i++){
 
     star.className="star";
 
-    star.style.left=Math.random()*100+"%";
-    star.style.top=Math.random()*100+"%";
+    star.style.left=
+        Math.random()*100+"%";
 
-    star.style.animationDelay=Math.random()*2+"s";
+    star.style.top=
+        Math.random()*100+"%";
+
+    star.style.animationDelay=
+        Math.random()*2+"s";
 
     document.body.appendChild(star);
 }
@@ -303,7 +400,9 @@ for(let i=0;i<80;i++){
 </script>
 
 
-<!-- GIFT SCREEN -->
+<!-- =========================
+     GIFT SCREEN
+========================= -->
 
 <div class="gift-screen" id="giftScreen">
 
@@ -311,21 +410,37 @@ for(let i=0;i<80;i++){
         ✨ I Have A Special Surprise For You ✨
     </div>
 
+
     <div class="gift" onclick="openGift()">
 
+        <!-- Bow -->
+
         <div class="bow-left"></div>
+
         <div class="bow-right"></div>
+
         <div class="bow-center"></div>
 
+
+        <!-- Lid -->
+
         <div class="lid" id="lid">
+
             <div class="ribbon-h"></div>
+
         </div>
 
+
+        <!-- Box -->
+
         <div class="box">
+
             <div class="ribbon-v"></div>
+
         </div>
 
     </div>
+
 
     <div class="click-text">
         🎁 Click The Gift To Open 🎁
@@ -334,23 +449,46 @@ for(let i=0;i<80;i++){
 </div>
 
 
-<!-- BIRTHDAY -->
+
+<!-- =========================
+     BIRTHDAY SCREEN
+========================= -->
 
 <div class="birthday" id="birthday">
 
     <div class="card">
 
+
+        <!-- Cake -->
+
         <div class="cake">
             🎂
         </div>
 
+
+        <!-- Happy Birthday -->
+
         <div class="happy">
-            🎉 HAPPY BIRTHDAY 🎉
+
+            <span>🎉</span>
+
+            HAPPY BIRTHDAY
+
+            <span>🎉</span>
+
         </div>
 
+
+        <!-- Name -->
+
         <div class="name">
+
             Sanjida Nusrat ❤️
+
         </div>
+
+
+        <!-- Message -->
 
         <div class="message">
 
@@ -371,29 +509,44 @@ for(let i=0;i<80;i++){
 
         </div>
 
+
+        <!-- Final Message -->
+
         <div class="love">
+
             💕 Once Again, Happy Birthday Sanjida Nusrat 💕
+
         </div>
+
 
     </div>
 
 </div>
 
 
+
 <script>
+
+
+/* =========================
+   OPEN GIFT
+========================= */
 
 function openGift(){
 
-    const lid=document.getElementById("lid");
+    const lid =
+        document.getElementById("lid");
 
-    const giftScreen=document.getElementById("giftScreen");
+    const giftScreen =
+        document.getElementById("giftScreen");
 
-    const birthday=document.getElementById("birthday");
+    const birthday =
+        document.getElementById("birthday");
 
 
-    /* Open Gift */
+    /* Lid Animation */
 
-    lid.style.transform=
+    lid.style.transform =
         "translateY(-90px) rotate(-8deg)";
 
 
@@ -401,6 +554,8 @@ function openGift(){
 
     createConfetti();
 
+
+    /* Show Birthday */
 
     setTimeout(()=>{
 
@@ -413,11 +568,15 @@ function openGift(){
 }
 
 
-/* Confetti */
+
+/* =========================
+   CONFETTI
+========================= */
 
 function createConfetti(){
 
     const emojis=[
+
         "🎉",
         "🎊",
         "✨",
@@ -426,32 +585,38 @@ function createConfetti(){
         "🌸",
         "⭐",
         "🥳"
+
     ];
 
 
     for(let i=0;i<150;i++){
 
-        let confetti=
+        let confetti =
             document.createElement("div");
 
 
-        confetti.innerHTML=
+        confetti.innerHTML =
             emojis[
                 Math.floor(
-                    Math.random()*emojis.length
+                    Math.random()
+                    * emojis.length
                 )
             ];
 
 
         confetti.style.position="fixed";
 
-        confetti.style.left=
+
+        confetti.style.left =
             Math.random()*100+"vw";
+
 
         confetti.style.top="-50px";
 
-        confetti.style.fontSize=
+
+        confetti.style.fontSize =
             (15+Math.random()*25)+"px";
+
 
         confetti.style.zIndex="999";
 
@@ -459,36 +624,48 @@ function createConfetti(){
         document.body.appendChild(confetti);
 
 
-        let duration=
+        let duration =
             2000+Math.random()*3000;
 
 
         confetti.animate(
 
             [
+
                 {
                     transform:
                         "translateY(0) rotate(0deg)",
+
                     opacity:1
                 },
 
                 {
+
                     transform:
-                        `translateY(110vh) rotate(${Math.random()*1000}deg)`,
+                        `translateY(110vh)
+                         rotate(${Math.random()*1000}deg)`,
+
                     opacity:0
+
                 }
+
             ],
 
             {
+
                 duration:duration,
+
                 easing:"linear"
+
             }
 
         );
 
 
         setTimeout(()=>{
+
             confetti.remove();
+
         },duration);
 
     }
